@@ -1,0 +1,165 @@
+~ = Current user's home directory
+pwd
+cat
+greb
+cp
+mv
+df -h
+uniq
+sort
+wc
+head
+tail
+tr
+sed
+awk
+>
+>>
+<
+chmod
+apt/yum
+chown
+sudo
+mkdir
+cd
+ls
+nano
+vim
+touch
+group {User_Name}
+sudo del {User_Name}
+sudo delgroup {Group_Name}
+passwd
+addusr
+-aG
+rm
+rm -r
+cat /etc/passwd
+cat /etc/group
+Read - 4 ; Write - 2; Execute - 2
+|
+
+================================================================================================================
+Archiving & Compressing
+========================
+
+10 Files
+
+-> Files.tar
+
+TAR (Tape Archive) (also call as tarball)
+
+Syntax:
+
+tar [options] archive_name.tar file_or_directory
+
+
+Common Options:
+===============
+
+-c: Create a new archive.
+-v: Verbose, shows the progress of archiving.
+-f: Specify the file name for the archive.
+-x: Extract the files from archive.
+-t: List the contents of the archive.
+-z: Compress the archive using gzip.
+-j: Compress the archive using bzip2.
+-r: Add a file into an existing archive.
+--delete: To remove a file from the archive.
+
+Create a tar archive:
+----------------------
+tar -cvf archive_name.tar /path/to/directory_or_file
+
+Create a tar archive and compress with gzip:
+---------------------------------------------
+tar -czvf archive_name.tar.gz /path/to/directory_or_file
+
+Create a tar archive and compress with bzip2:
+---------------------------------------------
+tar -cjvf archive_name.tar.bz2 /path/to/directory_or_file
+
+List the contents of a tar archieve:
+------------------------------------
+tar -tvf archive_name.tar
+
+Extract a tar archive:
+----------------------
+tar -xvf archive_name.tar
+
+Extract a gzipped tar archive:
+------------------------------
+tar -xzvf archive_name.tar.gz
+
+Extract a bz2-compressed tar archive:
+--------------------------------------
+tar -xjvf archive_name.tar.bz2
+
+Adding a file to Existing Archive:
+----------------------------------
+tar -rvf archive_name.tar new_file
+
+Removing files from an archive:
+-------------------------------
+tar --delete -f archive_name.tar file_to_remove
+
+============================================================================================================================================
+Cron
+====
+
+***** Command_To_Run
+
+1. Minute (0-59)
+2. Hour (0-23)
+3. Day of the Month (1-31)
+4. Month (1-12)
+5. Day of the Week (0-7) (0 and 7 both represents Sunday)
+
+* 10 * * * /path/to/script.sh
+
+* 22 * * * tar -czf /home/ubuntu/Backup/Daily_Backup.tar.gz /home/ubuntu/Guvi/test_tar
+
+@hourly tar -czf /home/ubuntu/Backup/Daily_Backup.tar.gz /home/ubuntu/Guvi/test_tar
+
+@daily tar -czf /home/ubuntu/Backup/Daily_Backup.tar.gz /home/ubuntu/Guvi/test_tar
+
+Edit Crontab:
+-------------
+crontab -e
+
+List current cron jobs:
+-----------------------
+crontab -l
+
+Remove the crontab:
+-------------------
+crontab -r
+
+Cron Special Strings:
+---------------------
+
+@reboot path/to/command (Runs the command once after the System reboots)
+
+@hourly (0 * * * *)
+
+@daily (0 0 * * *)
+
+@weekly (0 0 * * 0)
+
+@monthly (0 0 1 * *)
+
+@yealy or @annually (0 0 1 1 *)
+
+
+Cron Job Troubleshooting:
+-------------------------
+
+1. Check the Cron Service status:
+
+sudo systemctl status cron
+
+2. Cron logs
+
+grep CRON /var/log/syslog
+
+==============================================================================================================
