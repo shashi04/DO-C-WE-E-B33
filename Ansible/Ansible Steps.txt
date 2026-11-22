@@ -1,4 +1,4 @@
-Step 1: Install ansible
+Step 1: Install ansible, execute the below command
 
 sudo apt install ansible
 
